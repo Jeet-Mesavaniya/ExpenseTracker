@@ -11,6 +11,7 @@ namespace ExpenseTracker.Models
         public int CategoryId { get; set; }
 
         [Column(TypeName ="nvarchar(50)")]
+        [Required(ErrorMessage = "Title is required")]
         public string Title { get; set; }
 
         [Column(TypeName = "nvarchar(5)")]
@@ -18,6 +19,16 @@ namespace ExpenseTracker.Models
 
         [Column(TypeName = "nvarchar(10)")]
         public string Type { get; set; } = "Expense";
+
+        [NotMapped]
+        public string? TitleWithIcon 
+        {
+            get
+            {
+                return this.Title + " " + this.Icon;
+            }
+        }
+
 
     }
 }

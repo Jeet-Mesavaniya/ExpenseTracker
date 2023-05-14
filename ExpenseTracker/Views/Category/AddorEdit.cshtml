@@ -1,7 +1,8 @@
 ﻿@model ExpenseTracker.Models.Category
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["PageTitle"] = @Model.CategoryId == 0 ? "Create a new category" : "Edit category";
+
 }
 
 <div class="row">
@@ -20,7 +21,7 @@
             </div>
             <div class="mb-3">
                 <ejs-textbox id="Title" cssClass="e-outline" placeholder="Title" ejs-for="Title" floatLabelType="Always"></ejs-textbox>
-                <span asp-validation-for="Title" class="text-danger"></span>
+                <span asp-validation-for="Title" class="text-danger fs-6"></span>
             </div>
             <div class="mb-3">
                 <ejs-textbox id="Icon" cssClass="e-outline" placeholder="Icon" ejs-for="Icon" floatLabelType="Always"></ejs-textbox>
@@ -39,6 +40,6 @@
 </div>
 
 
-@section Scripts {
+@*@section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+}*@
